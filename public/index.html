@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="style.css">
+    <title>Data For Students</title>
+
+
+
+</head>
+<header>
+    <div class="left_section">
+        <i class="material-icons logo">menu</i>
+        <img src="images/windows1.jpg">
+    </div>
+    <dev class="right_section">
+        <p>Navigating Your Journey with Data </p>
+    </dev>
+</header>
+<div class="content_area">
+    <aside>
+        <nav>
+            <a href="index.html" class="nav-link active">
+                <i class="material-icons">home</i>
+                <span id="active-span">Home</span>
+            </a>
+            <a href="index2.html" class="nav-link ">
+                <i class="material-symbols-outlined">person</i>
+                <span>Students data</span>
+            </a>
+            
+            <div id="nav-link">
+                <!-- Content From Api -->
+            </div>
+        </nav>
+    </aside>
+    <div class="main_1">
+        <img class="image345" src="images/Fronted-VS-Backend-Web-Development.webp">
+    </div>
+    <div class="Text">
+        <h3>Overview:</h3>
+        <p>The project aims to create a seamless data transfer system from a backend database to the frontend 
+            interface for student-related information. By leveraging database management systems and frontend
+            technologies, the project ensures efficient and secure retrieval and display of student data on the
+            frontend interface. 
+        </p>
+        <br>
+        <h3>Benefits:</h3>
+        <p>
+    <strong> Enhanced Data Accessibility:</strong> Students, faculty, and administrative staff can easily access and view student-related information through a user-friendly interface.
+        </p>
+        <br>
+        <p>
+            <b>Updates:</b> Any updates or changes made to the database are immediately reflected on the frontend interface, ensuring data consistency and accuracy.
+        </p>
+        <br>
+        <p>
+            <b>Calability:</b> The architecture is designed to accommodate future growth in data volume and user traffic, making it scalable and adaptable to evolving requirements.
+        </p>
+        <br>
+        <p>
+            <b>Security:</b> Robust security measures are implemented to protect sensitive student data from unauthorized access or manipulation.
+        </p>
+        <br>
+    </div>
+    
+        
+</div>
+
+<script>
+    fetch('http://localhost:3001/api/students')
+        .then(response => response.json())
+        .then(data => {
+            // Assuming data is an array of objects
+            // Check if data exists and has at least two items
+            if (Array.isArray(data) && data.length >= 2) {
+                const {name} = data[1];
+                const {name: name1} = data[0];
+                
+                // Display data of the first student
+                document.getElementById('nav-link').innerHTML += `
+                <hr>
+                 <p>Students</p>
+                `;
+                document.getElementById('nav-link').innerHTML += `
+                <a href="index2.html" class = 'nav-link'>
+                    <img class="channel-img" src="images/boda.jpg">
+                    <span>${name}</span>
+                </a>
+                
+                `;
+                
+                // Display data of the second student
+                document.getElementById('nav-link').innerHTML += `
+                <a href="index2.html" class = 'nav-link'>
+                    <img class="channel-img" src="images/mansor.jpg">
+                    <span>${name1}</span>
+                </a>
+                `;
+            } else {
+                console.error('Data is not in the expected format.');
+            }
+        })
+        .catch(error => console.error('Error:', error));
+</script>
+
+</html>

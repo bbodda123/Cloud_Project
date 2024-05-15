@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="second_page.css">
+    <title>Data For Students</title>
+</head>
+
+<header>
+    <div class="left_section">
+        <i class="material-icons logo">menu</i>
+        <img src="images/windows1.jpg">
+    </div>
+    <dev class="right_section">
+        <p>Navigating Your Journey with Data </p>
+    </dev>
+</header>
+
+<div class="content_area">
+    <aside>
+        <nav>
+            <a href="index2.html" class="nav-link active">
+                <i class="material-symbols-outlined">person</i>
+                <span id="active-span">Students data</span>
+            </a>
+            <a href="index.html" class="nav-link ">
+                <i class="material-icons">home</i>
+                <span>Home</span>
+            </a>
+        </nav>
+    </aside>
+
+    <div class="main_container" id="myData">
+        <!-- Data from API will be displayed here -->
+    </div>
+</div>
+
+<script>
+    fetch('http://localhost:3001/api/students')
+        .then(response => response.json())
+        .then(data => {
+            // Assuming data is an array of objects
+            // Check if data exists and has at least two items
+            if (Array.isArray(data) && data.length >= 2) {
+                const { id, name, age, gpa } = data[0];
+                const { id: id1, name: name1, age: age1, gpa: gpa1 } = data[1];
+                
+                // Display data of the first student
+                document.getElementById('myData').innerHTML += `
+                    <div class="Data_Student1">
+                        <img class="image_name" src="images/mansor.jpg">
+                        <p>Name: ${name}</p>
+                        <p>ID: ${id}</p>
+                        <p>GPA: ${gpa}</p>
+                        <p>Age: ${age}</p>
+                    </div>
+                `;
+                
+                // Display data of the second student
+                document.getElementById('myData').innerHTML += `
+                    <div class="Data_Student2">
+                        <img class="image_name" src="images/boda.jpg">
+                        <p>Name: ${name1}</p>
+                        <p>ID: ${id1}</p>
+                        <p>GPA: ${gpa1}</p>
+                        <p>Age: ${age1}</p>
+                    </div>
+                `;
+            } else {
+                console.error('Data is not in the expected format.');
+            }
+        })
+        .catch(error => console.error('Error:', error));
+</script>
+
+</html>

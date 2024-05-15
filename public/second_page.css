@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+    background-color: rgb(239, 233, 224);
+}
+
+body {
+    font-family: "Roboto", "Arial", sans-serif;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 56px;
+    padding: 0 16px;
+    background-color: rgb(240, 229, 214);
+}
+
+.left_section {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+}
+
+.left_section img {
+    padding-top: 1px;
+    padding-left: 16px;
+    border-radius: 50%;
+}
+
+.left_section i {
+
+    border-radius: 50%;
+}
+
+.left_section i:hover {
+    background-color: #f0f0f0;
+}
+
+.right_section {
+    display: flex;
+    align-items: center;
+    margin-right: 43%;
+}
+
+.right_section p {
+    color: rgb(67, 66, 58);
+    font-size: 1.5rem;
+    font-style: italic;
+    font-weight: 700;
+}
+
+.content_area {
+    height: calc(100vh - 56px);
+    display: flex;
+}
+
+aside {
+    height: auto;
+    width: 280px;
+    background-color: rgb(240, 229, 214);
+    overflow-y: auto;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+    padding-right: 15px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding: 10px 16px;
+    text-decoration: none;
+    color: black;
+}
+
+.nav-link:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.nav-link span {
+    margin-left: 24px;
+    font-size: 1.4rem;
+    line-height: 2em;
+    font-weight: 400;
+    color: #030303;
+}
+
+.active {
+    background-color: rgb(226, 218, 208);
+}
+
+#active-span {
+    font-weight: 500;
+}
+
+.main_container {
+    display: flex;
+    margin: 30px 30px;
+
+}
+
+.image_name {
+    height: 90%;
+    width: 100%;
+}
+
+hr {
+    margin: 0 10px;
+}
+
+.Data_Student1 {
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 1em;
+    text-align: center;
+
+}
+
+.Data_Student2 {
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 1em;
+    margin-left: 30px;
+    text-align: center;
+}

@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "3001:3001"
+    environment:
+      - MYSQL_HOST=localhost
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=0121250
+      - MYSQL_DATABASE=students
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 0121250
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+volumes:
+  mysql-data:
